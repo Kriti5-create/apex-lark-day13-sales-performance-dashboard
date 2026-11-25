@@ -1,0 +1,20 @@
+-- Create these measures in Power BI after loading your sales table.
+-- Assumed table name: Orders
+-- Rename table/columns below if your Excel dataset uses different names.
+
+Total Sales = SUM(Orders[Sales])
+
+Total Profit = SUM(Orders[Profit])
+
+Total Orders = DISTINCTCOUNT(Orders[Order ID])
+
+Total Customers = DISTINCTCOUNT(Orders[Customer ID])
+
+Total Quantity Sold = SUM(Orders[Quantity])
+
+Average Sales = DIVIDE([Total Sales], [Total Orders], 0)
+
+Profit Margin (%) = DIVIDE([Total Profit], [Total Sales], 0)
+
+-- Optional helper measure for charts
+Average Order Value = DIVIDE([Total Sales], [Total Orders], 0)
